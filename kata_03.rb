@@ -34,11 +34,7 @@ class DatInterpretor
 
   def data_import
     if (@data_file)
-      if (@data_file == "football.dat")
-        input = File.open('football.dat', File::RDONLY){|f| f.read}
-      else (@data_file == "weather.dat")
-        input = File.open('weather.dat', File::RDONLY){|f| f.read}
-      end
+      input = File.open("#{@data_file}", File::RDONLY){|f| f.read}
       input_array = input.lines.map(&:split)
       if (@data_file == "football.dat")
         football_data(input_array)
